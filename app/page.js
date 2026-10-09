@@ -26,7 +26,7 @@ const projects = [
     blurb: 'A private TypeScript platform that consolidates workforce operations, scheduling, and automated workflows in one focused workspace.',
     image: '/assets/private-operations-landing.png',
     visual: 'Private / NDA',
-    links: [],
+    links: [['Live product', 'https://rr-livestream.vercel.app']],
   },
   {
     name: 'Marketing Analytics Dashboard',
