@@ -19,6 +19,16 @@ const projects = [
     ],
   },
   {
+    name: 'VietAuction',
+    category: 'Digital Asset Auction · Web Platform',
+    type: 'Online auction marketplace',
+    status: 'Live product',
+    blurb: 'A polished auction marketplace for discovering curated assets, reviewing listings transparently, and joining live bidding sessions.',
+    image: '/assets/vietauction-landing.png',
+    visual: 'VietAuction',
+    links: [['Visit live site', 'https://vietauction.vercel.app/']],
+  },
+  {
     name: 'Private Operations Platform',
     category: 'Private Product · NDA',
     type: 'Operations & automation',
@@ -59,6 +69,12 @@ const stack = [
   ['Frontend & mobile', 'React · Next.js · TypeScript · JavaScript · React Native · Expo · HTML/CSS'],
   ['Backend & systems', 'Java · C# · Spring Boot · Node.js · REST APIs · JWT · WebSocket'],
   ['Data & delivery', 'SQL Server · MongoDB · Hibernate · Docker · CI/CD · Railway · Vercel'],
+];
+
+const publicStats = [
+  ['160', 'YouTube subscribers'],
+  ['32.6K', 'Channel views'],
+  ['47', 'Public repositories'],
 ];
 
 function RevealHeading({ lines, className = '' }) {
@@ -135,7 +151,7 @@ function LiquidImage({ src, alt, className = '', bare = false, placeholderLabel 
           <feDisplacementMap ref={displacementRef} in="SourceGraphic" in2="noise" scale="1" />
         </filter>
       </svg>
-      {src ? <img src={src} alt="" style={{ '--liquid-filter': `url(#${filterId})` }} /> : <div className="image-placeholder">{placeholderLabel}</div>}
+      {src ? <img src={src} alt="" loading="lazy" style={{ '--liquid-filter': `url(#${filterId})` }} /> : <div className="image-placeholder">{placeholderLabel}</div>}
       {!bare && <><span className="liquid-veil" /><span className="liquid-glow" /><span className="liquid-vignette" /></>}
     </figure>
   );
@@ -333,7 +349,9 @@ export default function HomePage() {
         <ul className="principles">{principles.map(([title, copy], index) => <li className="principle fade-up" data-reveal="principle" style={{ '--delay': `${index * 90}ms` }} key={title}><span className="principle-index">0{index + 1}</span><div><h3>{title}</h3><p>{copy}</p></div></li>)}</ul>
       </div></section>
 
-      <section id="projects" className="content-section ventures"><div className="section-header" data-reveal="ventures-header"><div><Eyebrow>Selected Work</Eyebrow><h2 className="display-heading"><RevealHeading lines={['Products built', 'to do real work.']} /></h2></div><span className="section-count">04 / Projects</span></div><ul className="venture-grid">{projects.map((project, index) => <li className={`venture-card fade-up ${index % 2 ? 'offset-card' : ''}`} data-reveal="venture" style={{ '--delay': `${index * 120}ms` }} key={project.name}><article className="group"><LiquidImage src={project.image} alt={project.image ? `${project.name} public landing-page preview` : project.name} className={project.image ? 'project-preview' : ''} placeholderLabel={project.visual} /><div className="venture-row"><div><h3>{project.name}</h3><p>{project.blurb}</p></div><div className="venture-meta"><span>{project.type}</span><strong>{project.status}</strong></div></div><div className="venture-category">{project.category}</div>{project.links.length > 0 && <div className="project-actions">{project.links.map(([label, href]) => <a key={label} className="project-link" href={href} target="_blank" rel="noreferrer noopener">{label} <span>↗</span></a>)}</div>}</article></li>)}</ul></section>
+      <section id="projects" className="content-section ventures"><div className="section-header" data-reveal="ventures-header"><div><Eyebrow>Selected Work</Eyebrow><h2 className="display-heading"><RevealHeading lines={['Products built', 'to do real work.']} /></h2></div><span className="section-count">{String(projects.length).padStart(2, '0')} / Projects</span></div><ul className="venture-grid">{projects.map((project, index) => <li className={`venture-card fade-up ${index % 2 ? 'offset-card' : ''}`} data-reveal="venture" style={{ '--delay': `${index * 120}ms` }} key={project.name}><article className="group"><LiquidImage src={project.image} alt={project.image ? `${project.name} public landing-page preview` : project.name} className={project.image ? 'project-preview' : ''} placeholderLabel={project.visual} /><div className="venture-row"><div><h3>{project.name}</h3><p>{project.blurb}</p></div><div className="venture-meta"><span>{project.type}</span><strong>{project.status}</strong></div></div><div className="venture-category">{project.category}</div>{project.links.length > 0 && <div className="project-actions">{project.links.map(([label, href]) => <a key={label} className="project-link" href={href} target="_blank" rel="noreferrer noopener">{label} <span>↗</span></a>)}</div>}</article></li>)}</ul></section>
+
+      <section id="knowledge" className="content-section channel-section"><div className="section-header" data-reveal="channel-header"><div><Eyebrow>Public footprint</Eyebrow><h2 className="display-heading"><RevealHeading lines={['Build, share,', 'and iterate.']} /></h2></div></div><dl className="channel-stats">{publicStats.map(([value, label], index) => <div className="channel-stat fade-up" data-reveal="channel-stat" style={{ '--delay': `${index * 110}ms` }} key={label}><dt>{value}</dt><dd>{label}</dd></div>)}</dl></section>
 
       <section id="stack" className="content-section stack-section"><div className="section-header split-header" data-reveal="stack-header"><Eyebrow>Technical Stack</Eyebrow><h2 className="display-heading"><RevealHeading lines={['Tools to turn', 'ideas into', 'products.']} /></h2></div><ul className="stack-grid">{stack.map(([title, tools], index) => <li className="stack-card fade-up" data-reveal="stack" style={{ '--delay': `${index * 110}ms` }} key={title}><span className="stack-index">0{index + 1}</span><h3>{title}</h3><p>{tools}</p></li>)}</ul></section>
 

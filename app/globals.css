@@ -71,3 +71,10 @@ main { position:relative; width:100%; overflow-x:hidden; }
 body.is-menu-open { overflow:hidden; }
 .email-link { max-width:100%; word-break:normal; overflow-wrap:anywhere; }
 @media (min-width:640px) { .email-link { font-size:clamp(2rem,4vw,4.5rem); } }
+
+.channel-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:4rem; border-top:1px solid var(--line); }
+.channel-stat { display:flex; flex-direction:column; justify-content:space-between; min-height:16rem; padding:2.5rem 2rem; border-bottom:1px solid var(--line); }
+.channel-stat:not(:first-child) { border-left:1px solid var(--line); }
+.channel-stat dt { color:var(--foreground); font:6rem/.9 var(--font-display); letter-spacing:-.01em; }
+.channel-stat dd { color:var(--muted); font-size:1.0625rem; line-height:1.45; text-transform:uppercase; letter-spacing:.14em; white-space:nowrap; }
+@media (max-width:639px) { .channel-stats { grid-template-columns:1fr; margin-top:3rem; }.channel-stat { min-height:0; padding:2rem 0; }.channel-stat:not(:first-child) { border-left:0; }.channel-stat dt { font-size:5rem; }.channel-stat dd { white-space:normal; } }
