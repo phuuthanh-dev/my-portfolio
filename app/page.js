@@ -26,7 +26,10 @@ const projects = [
     blurb: 'A polished auction marketplace for discovering curated assets, reviewing listings transparently, and joining live bidding sessions.',
     image: '/assets/vietauction-landing.png',
     visual: 'VietAuction',
-    links: [['Visit live site', 'https://vietauction.vercel.app/']],
+    links: [
+      ['Live product', 'https://vietauction.vercel.app/'],
+      ['Source', 'https://github.com/vietauction'],
+    ],
   },
   {
     name: 'Private Operations Platform',
@@ -37,15 +40,6 @@ const projects = [
     image: '/assets/private-operations-landing.png',
     visual: 'Private / NDA',
     links: [['Live product', 'https://rr-livestream.vercel.app']],
-  },
-  {
-    name: 'Marketing Analytics Dashboard',
-    category: 'Data & Reporting',
-    type: 'Internal analytics tool',
-    status: 'Dashboard',
-    blurb: 'A unified reporting workspace for Facebook organic performance, paid advertising, and Instagram analytics.',
-    visual: 'Analytics',
-    links: [['View source', 'https://github.com/phuuthanh-dev/meta-marketing-dashboard']],
   },
   {
     name: 'Moji Chat',
